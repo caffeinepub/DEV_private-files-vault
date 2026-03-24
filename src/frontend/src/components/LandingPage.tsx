@@ -43,7 +43,7 @@ export default function LandingPage() {
           </div>
 
           <h1 className="font-display text-5xl sm:text-6xl font-800 leading-[1.05] tracking-tight text-foreground">
-            Your files, <span className="gold-text">absolutely</span> private.
+            Files
           </h1>
 
           <p className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto">
