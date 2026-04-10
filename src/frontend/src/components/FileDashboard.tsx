@@ -5,13 +5,13 @@ import { useQueryClient } from "@tanstack/react-query";
 import { FolderOpen, Lock, LogOut, Upload } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
-import type { FileMetadata } from "../backend.d";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   useGetCallerUserProfile,
   useIsCallerAdmin,
   useListFiles,
 } from "../hooks/useQueries";
+import type { FileMetadata } from "../types";
 import AdminPanel from "./AdminPanel";
 import DeleteDialogLazy from "./DeleteDialog";
 import FileCard from "./FileCard";

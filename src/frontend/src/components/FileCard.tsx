@@ -21,8 +21,8 @@ import {
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
-import type { FileMetadata } from "../backend.d";
 import { useBlobStorage } from "../hooks/useBlobStorage";
+import type { FileMetadata } from "../types";
 
 function getFileIcon(mimeType: string) {
   if (mimeType.startsWith("image/")) return FileImage;

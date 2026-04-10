@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { FileMetadata, UserProfile } from "../backend.d";
+import type { FileMetadata, UserProfile } from "../types";
 import { useActor } from "./useActor";
 
 export function useGetCallerUserProfile() {

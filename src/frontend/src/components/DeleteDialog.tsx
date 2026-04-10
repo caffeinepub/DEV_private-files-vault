@@ -9,8 +9,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Loader2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
-import type { FileMetadata } from "../backend.d";
 import { useDeleteFile } from "../hooks/useQueries";
+import type { FileMetadata } from "../types";
 
 interface DeleteDialogProps {
   file: FileMetadata;

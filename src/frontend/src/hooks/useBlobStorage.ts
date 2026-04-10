@@ -1,12 +1,12 @@
 import { HttpAgent } from "@icp-sdk/core/agent";
 import { useCallback, useRef } from "react";
-import { loadConfig } from "../config";
 import { StorageClient } from "../utils/StorageClient";
+import { type Config, loadConfig } from "../utils/config";
 import { useInternetIdentity } from "./useInternetIdentity";
 
 export function useBlobStorage() {
   const { identity } = useInternetIdentity();
-  const configRef = useRef<Awaited<ReturnType<typeof loadConfig>> | null>(null);
+  const configRef = useRef<Config | null>(null);
 
   const getClient = useCallback(async () => {
     if (!configRef.current) {

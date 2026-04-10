@@ -11,8 +11,8 @@ import { Label } from "@/components/ui/label";
 import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import type { FileMetadata } from "../backend.d";
 import { useRenameFile } from "../hooks/useQueries";
+import type { FileMetadata } from "../types";
 
 interface RenameDialogProps {
   file: FileMetadata;

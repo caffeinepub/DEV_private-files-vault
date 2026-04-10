@@ -1,0 +1,51 @@
+type _CaffeineStorageRefillResult = 
+ record {
+   success: opt bool;
+   topped_up_amount: opt nat;
+ };
+type _CaffeineStorageRefillInformation = record {
+                                           proposed_top_up_amount: opt nat;};
+type _CaffeineStorageCreateCertificateResult = 
+ record {
+   blob_hash: text;
+   method: text;
+ };
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type UserProfile = record {name: text;};
+type FileMetadata = 
+ record {
+   blobKey: text;
+   id: text;
+   mimeType: text;
+   name: text;
+   size: nat;
+   uploadedAt: int;
+ };
+service : {
+  _caffeineStorageBlobIsLive: (hash: blob) -> (bool) query;
+  _caffeineStorageBlobsToDelete: () -> (vec blob) query;
+  _caffeineStorageConfirmBlobDeletion: (blobs: vec blob) -> ();
+  _caffeineStorageCreateCertificate: (blobHash: text) ->
+   (_CaffeineStorageCreateCertificateResult);
+  _caffeineStorageRefillCashier: (refillInformation:
+   opt _CaffeineStorageRefillInformation) -> (_CaffeineStorageRefillResult);
+  _caffeineStorageUpdateGatewayPrincipals: () -> ();
+  _initializeAccessControlWithSecret: (userSecret: text) -> ();
+  addFileMetadata: (fileId: text, name: text, size: nat, mimeType: text,
+   blobKey: text) -> (FileMetadata);
+  adminListAllFiles: () -> (vec FileMetadata) query;
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  deleteFile: (fileId: text) -> ();
+  getCallerUserProfile: () -> (opt UserProfile) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getUserProfile: (user: principal) -> (opt UserProfile) query;
+  isCallerAdmin: () -> (bool) query;
+  listFiles: () -> (vec FileMetadata) query;
+  renameFile: (fileId: text, newName: text) -> (FileMetadata);
+  saveCallerUserProfile: (profile: UserProfile) -> ();
+}

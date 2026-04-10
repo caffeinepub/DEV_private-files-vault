@@ -10,8 +10,8 @@ import {
   Shield,
 } from "lucide-react";
 import { motion } from "motion/react";
-import type { FileMetadata } from "../backend.d";
 import { useAdminListAllFiles } from "../hooks/useQueries";
+import type { FileMetadata } from "../types";
 
 const SKELETON_KEYS = ["sk-1", "sk-2", "sk-3", "sk-4"];
 
